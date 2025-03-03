@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+@import "tailwindcss";
+
+@layer base {
+
+}
+
+@theme {
+    --font-base: 'Merriweather', serif;
+}
+
+@layer utilities {
+    .bg {
+        @apply bg-red-500;
+    }
+
+    .bg-code-box {
+        @apply bg-[rgba(155,155,156,0.9)];
+    }
+    .flex-center {
+        @apply flex items-center justify-center ;
+    }
+
+    .title {
+        @apply text-2xl text-center font-base font-[700];
+    }
+    .sub-txt {
+        @apply text-[1.112rem] text-center font-base font-[500];
+    }
+
+    .build-ul li {
+        @apply text-[14.5px] font-[600];
+    }
+
+    .overview-ul li {
+        @apply text-[18px] font-[600] list-disc py-2;
+    }
+
+    .text-16 {
+        @apply text-[16px] font-[600];
+    }
+
+}
+
+@layer components {
+    .child-box {
+        @apply h-1/2 relative w-full;
+    }
+
+    .mobile-nav {
+        @apply bg-red-300 py-2 px-3 w-28 absolute top-24 rounded-lg;
+    }
+    .mobile-nav-ul li{
+        @apply hover:bg-amber-100 p-2 rounded-lg transition duration-200 ease-in-out;
+    }
+}
