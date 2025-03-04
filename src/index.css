@@ -24,6 +24,9 @@
     .title {
         @apply text-2xl text-center font-base font-[700];
     }
+    .title-lg {
+        @apply text-lg  font-base font-[700];
+    }
     .sub-txt {
         @apply text-[1.112rem] text-center font-base font-[500];
     }
