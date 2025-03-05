@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Copy } from "lucide-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 // import { Button } from "@/components/ui/button";
 
 export default function CodeBlock({
@@ -17,7 +17,7 @@ export default function CodeBlock({
   };
 
   return (
-    <div className="relative rounded-lg shadow-md">
+    <div className="relative rounded-lg shadow-md w-full ">
       <button
         className="absolute -top-3 right-1 p-2 text-sm text-gray-500 bg-gray-100 rounded-md flex gap-2 cursor-pointer"
         onClick={handleCopy}
@@ -27,8 +27,12 @@ export default function CodeBlock({
 
       <SyntaxHighlighter
         language={language}
-        style={oneDark}
-        className="rounded-md p-2"
+        style={dracula}
+        showLineNumbers={true}
+        wrapLines={true}
+        lineProps={{
+          style: { wordBreak: "break-all", "white-space": "pre" },
+        }}
       >
         {code}
       </SyntaxHighlighter>
