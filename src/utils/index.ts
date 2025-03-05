@@ -1,5 +1,4 @@
 import { method } from "../type";
-import { useGetContentHook } from "../query/hooks/query";
 type ContentData = {
     id: number,
     title: string,

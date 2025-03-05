@@ -31,7 +31,7 @@ export default function CodeBlock({
         showLineNumbers={true}
         wrapLines={true}
         lineProps={{
-          style: { wordBreak: "break-all", "white-space": "pre" },
+          style: { wordBreak: "break-all", whiteSpace: "pre-wrap" },
         }}
       >
         {code}
