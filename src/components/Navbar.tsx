@@ -1,3 +1,4 @@
+import DesktopNav from "./DesktopNav.tsx";
 import MobileNavbutton from "./MobileNavbutton.tsx";
 
 const Navbar = () => {
@@ -8,6 +9,9 @@ const Navbar = () => {
       </div>
       <div className="h-full relative p-2 md:hidden">
         <MobileNavbutton />
+      </div>
+      <div className="hidden md:block">
+          <DesktopNav/>
       </div>
     </div>
   );

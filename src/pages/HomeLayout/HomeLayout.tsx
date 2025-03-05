@@ -7,7 +7,7 @@ import MobileNav from "../../components/MobileNav.tsx";
 const HomeLayout = () => {
     const {isOpened} = useMobilenav();
     return ( 
-        <div className="w-full max-w-screen relative h-screen grid grid-rows-11 grid-cols-1 gap-1 p-2">
+        <div className="w-full max-w-screen relative h-screen grid grid-rows-11 grid-cols-1 gap-1 p-2 md:px-7 lg:px-12">
             <header className="h-full w-full relative bg-[rgba(155,155,155,0.4)] flex-center">
                 <Navbar/>
             </header>
