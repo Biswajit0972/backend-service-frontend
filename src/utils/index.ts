@@ -52,3 +52,21 @@ export const contentData: ContentData[] = [
     },
 
 ];
+
+interface Nav {
+    url: string;
+    name: string;
+}
+export const NavUrl: Nav[] = [
+    {
+        url: "/",
+        name: "Home"
+    },
+    {
+        url: "/user",
+        name: "User"
+    }, {
+        url: "/content",
+        name: "Content"
+    }
+]
