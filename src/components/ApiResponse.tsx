@@ -1,14 +1,17 @@
 import { FC, useState } from "react";
 import CodeBlock from "./CodeBlock";
-import { ApiResponseProps, method } from "../type";
+import { ApiResponseProps, contentData, method } from "../type";
+import { getAllData } from "../query/queryFunctions";
+import { SwatchBook } from "lucide-react";
 
 const ApiResponse: FC<ApiResponseProps> = ({
   text,
   method = "GET",
   url = "https://backend-service-two.vercel.app/v1/getallnotes",
 }) => {
-    
-    const [response, setResponse] = useState( []);
+  const [response, setResponse] = useState<contentData | unknown>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const methodColors = (method: method): string => {
     switch (method) {
       case "GET":
@@ -27,15 +30,25 @@ const ApiResponse: FC<ApiResponseProps> = ({
   };
 
   const handelCall = async () => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      setResponse(data.data);
-      console.log(data.data);
-    } catch (error) {
-      console.log(error);
+    let data;
+    setIsLoading(true);
+    switch (method) {
+      case "GET":
+         data = await getAllData(url)
+        setIsLoading(false);
+        setResponse(data);
+        break;
+      case "POST":
+        break;
+      case "DELETE":
+        break;
+      case "UPDATE":
+        break;
+      default:
+        break;
     }
   };
+
   return (
     <div className="w-full  p-2  relative overflow-hidden rounded-2xl bg-red-300">
       <div className={`relative overflow-hidden inline-block `}>
@@ -49,15 +62,22 @@ const ApiResponse: FC<ApiResponseProps> = ({
         <p className="text-[16.4px] pt-2">
           Copy the code and paste any browser or terminal!
         </p>
-        <p  className="text-[16.4px]">{text}</p>
+        <p className="text-[16.4px]">{text}</p>
         <div className="code-block">
           <CodeBlock code={`fetch("${url}")`} />
         </div>
-        <button className="bg-green-500 text-white py-2 px-5 rounded-md cursor-pointer" onClick={handelCall}>
+        <button
+          className="bg-green-500 text-white py-2 px-5 rounded-md cursor-pointer"
+          onClick={handelCall}
+          disabled={isLoading}
+        >
           Run
         </button>
         <div className="code-block">
-          <CodeBlock language="json" code={JSON.stringify(response, null, ' ')}/>
+          <CodeBlock
+            language="json"
+            code={JSON.stringify(response, null, " ")}
+          />
         </div>
       </div>
     </div>
