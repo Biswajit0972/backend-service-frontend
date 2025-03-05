@@ -46,10 +46,10 @@ const ApiResponse: FC<ApiResponseProps> = ({
         </h1>
       </div>
       <div className="w-full relative overflow-hidden">
-        <p className="text-[16.4px] py-2">
+        <p className="text-[16.4px] pt-2">
           Copy the code and paste any browser or terminal!
-           {text}
         </p>
+        <p  className="text-[16.4px]">{text}</p>
         <div className="code-block">
           <CodeBlock code={`fetch("${url}")`} />
         </div>
