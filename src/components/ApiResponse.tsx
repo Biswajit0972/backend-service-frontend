@@ -2,8 +2,6 @@ import { FC, useState } from "react";
 import CodeBlock from "./CodeBlock";
 import { ApiResponseProps, contentData, method } from "../type";
 import { getAllData } from "../query/queryFunctions";
-import { SwatchBook } from "lucide-react";
-
 const ApiResponse: FC<ApiResponseProps> = ({
   text,
   method = "GET",
